@@ -10,71 +10,45 @@
             margin: 200px auto;
             width: 250px;
             height: 350px;
+            border: 2px solid yellowgreen;
+            /*设置观察点*/
+            perspective: 600px;
+            -webkit-perspective: 600px;
+            -moz-perspective: 600px;
         }
 
+        .front,
         .reverse
         {
             position: absolute;
-            top: 0;
-            left: 0;
-            transform: rotateY(-90deg);
-            -webkit-transform: rotateY(-90deg);
-            -ms-transform: rotateY(-90deg);
+            transition: all 1s;
+            -webkit-transition: all 1s;
+            -moz-transition: all 1s;
         }
-        
+
+        .front
+        {
+            z-index: 10;
+            backface-visibility: hidden;   /*正面的图片旋转到了90度后被隐藏*/
+        }
+        .container:hover div
+        {
+            transform: rotateY(180deg);
+            -webkit-transform:rotateY(180deg);
+            -ms-transform: rotateY(180deg);
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="front">
-            <img src="../images/正面.jpg"/>
-        </div>
-        <div class="reverse">
-            <img src="../images/反面.jpg"/>
-        </div>
+<div class="container">
+    <div class="front">
+        <img src="../images/正面.jpg"/>
     </div>
+    <div class="reverse">
+        <img src="../images/反面.jpg"/>
+    </div>
+</div>
 
-    <script>
-        (function()
-        {
-           var container = document.querySelector(".container");
-           var front = document.querySelector(".front");
-           var reverse = document.querySelector(".reverse");
 
-           container.onmouseover = function()
-           {
-               front.style.transition = "all 1s linear 300ms";
-               front.style.webkitTransition = "all 1s linear 300ms";
-               front.style.mozTransition = "all 1s linear 300ms";
-               front.style.transform = "rotateY(90deg)";
-               front.style.webkitTransform = "rotateY(90deg)";
-               front.style.msTransform = "rotateY(90deg)";
-
-               reverse.style.transition = "all 1s linear 1300ms";
-               reverse.style.webkitTransition = "all 1s linear 1300ms";
-               reverse.style.mozTransition = "all 1s linear 1300ms";
-               reverse.style.transform = "rotateY(0deg)";
-               reverse.style.webkitTransform = "rotateY(0deg)";
-               reverse.style.msTransform = "rotateY(0deg)";
-           };
-
-           container.onmouseout = function()
-           {
-               front.style.transition = "all 1s linear 1300ms";
-               front.style.webkitTransition = "all 1s linear 1300ms";
-               front.style.mozTransition = "all 1s linear 1300ms";
-               front.style.transform = "rotateY(0deg)";
-               front.style.webkitTransform = "rotateY(0deg)";
-               front.style.msTransform = "rotateY(0deg)";
-
-               reverse.style.transition = "all 1s linear 300ms";
-               reverse.style.webkitTransition = "all 1s linear 300ms";
-               reverse.style.mozTransition = "all 1s linear 300ms";
-               reverse.style.transform = "rotateY(-90deg)";
-               reverse.style.webkitTransform = "rotateY(-90deg)";
-               reverse.style.msTransform = "rotateY(-90deg)";
-           }
-        }())
-    </script>
 </body>
 </html>
