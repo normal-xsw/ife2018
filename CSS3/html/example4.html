@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>No.4 - 3D 空间的卡片翻转动效</title>
+    <style>
+        .container
+        {
+            position: relative;
+            margin: 200px auto;
+            width: 250px;
+            height: 350px;
+        }
+
+        .reverse
+        {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: rotateY(-90deg);
+            -webkit-transform: rotateY(-90deg);
+            -ms-transform: rotateY(-90deg);
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="front">
+            <img src="../images/正面.jpg"/>
+        </div>
+        <div class="reverse">
+            <img src="../images/反面.jpg"/>
+        </div>
+    </div>
+
+    <script>
+        (function()
+        {
+           var container = document.querySelector(".container");
+           var front = document.querySelector(".front");
+           var reverse = document.querySelector(".reverse");
+
+           container.onmouseover = function()
+           {
+               front.style.transition = "all 1s linear 300ms";
+               front.style.webkitTransition = "all 1s linear 300ms";
+               front.style.mozTransition = "all 1s linear 300ms";
+               front.style.transform = "rotateY(90deg)";
+               front.style.webkitTransform = "rotateY(90deg)";
+               front.style.msTransform = "rotateY(90deg)";
+
+               reverse.style.transition = "all 1s linear 1300ms";
+               reverse.style.webkitTransition = "all 1s linear 1300ms";
+               reverse.style.mozTransition = "all 1s linear 1300ms";
+               reverse.style.transform = "rotateY(0deg)";
+               reverse.style.webkitTransform = "rotateY(0deg)";
+               reverse.style.msTransform = "rotateY(0deg)";
+           };
+
+           container.onmouseout = function()
+           {
+               front.style.transition = "all 1s linear 1300ms";
+               front.style.webkitTransition = "all 1s linear 1300ms";
+               front.style.mozTransition = "all 1s linear 1300ms";
+               front.style.transform = "rotateY(0deg)";
+               front.style.webkitTransform = "rotateY(0deg)";
+               front.style.msTransform = "rotateY(0deg)";
+
+               reverse.style.transition = "all 1s linear 300ms";
+               reverse.style.webkitTransition = "all 1s linear 300ms";
+               reverse.style.mozTransition = "all 1s linear 300ms";
+               reverse.style.transform = "rotateY(-90deg)";
+               reverse.style.webkitTransform = "rotateY(-90deg)";
+               reverse.style.msTransform = "rotateY(-90deg)";
+           }
+        }())
+    </script>
+</body>
+</html>
