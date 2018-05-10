@@ -83,11 +83,6 @@
             text-align: left;
             pointer-events: none;
             color: #999;
-
-            transition: bottom 0.5s ease-in;
-            -webkit-transition: bottom 0.5s ease-in;
-            -moz-transition: bottom 0.5s ease-in;
-            -o-transition: bottom 0.5s ease-in;
         }
         .form__label__content {
             position: absolute;
@@ -115,6 +110,7 @@
         }
 
         /*my style*/
+        /*把标签在y轴上压缩，并上移15px*/
         .label__transform
         {
             transform: scaleY(0.8);
@@ -123,6 +119,10 @@
             -moz-transform: scaleY(0.8);
             -o-transform: scaleY(0.8);
             bottom: 15px;
+            transition: bottom 0.5s ease-in;
+            -webkit-transition: bottom 0.5s ease-in;
+            -moz-transition: bottom 0.5s ease-in;
+            -o-transition: bottom 0.5s ease-in;
         }
 
         .form__input:focus
@@ -130,11 +130,6 @@
             border-bottom: 3px #0d8aee solid;
         }
 
-        .form__input:focus:after
-        {
-            content: "";
-            border: 2px dotted red;
-        }
     </style>
 </head>
 <body>
